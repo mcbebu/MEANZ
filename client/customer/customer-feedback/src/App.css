@@ -2,41 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .parcel-id-text {
   display: flex;
   justify-content:flex-left;
@@ -65,16 +30,14 @@
 }
 
 .ninja-pic {
-  display: flex;
-  justify-content: right;
-  padding-right: 10%
+  position: absolute;
+  left: 30%;
+  top: 10%;
+  /* padding-right: 10%; */
+  width: 50%;
+  height: auto; 
   
-}
-
-.ninja-pic-size {
-  width: 10%;
-  height: auto;
-}
+} 
 
 .shuriken-on {
   cursor: pointer;
@@ -123,4 +86,32 @@
   display: flex;
   position: left;
   padding: 2%;
+}
+
+#jumbotron {
+  width: 100%;
+  height: 100vh;
+  padding:70px 160px 70px 160px;
+  margin:0px auto;
+  color:floralwhite;
+}
+
+.red-pill-outline {
+  border: 2px solid #ff5252;
+  border-radius: 50px;
+  color: #ff5252;
+  background-color: transparent;
+  padding: 10px 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.red-pill-outline:hover {
+  background-color: #ff5252;
+  color: #fff;
+}
+
+p {
+  font-size: 2rem;
 }

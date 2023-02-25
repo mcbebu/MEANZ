@@ -1,11 +1,9 @@
 function SubmitButton() {
     return (
-      <container className="submit-button"> 
-        <button>
-          Submit
-        </button>
-      </container>
-      
+      <div class="row justify-content-center">
+            <button className="red-pill-outline">Submit</button>
+      </div>
+           
     );
   }
   
