@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './App.css';
+import MyButton from './components/SubmitButton'
+import Parcelinfo from './components/Parcelinfo';
+import { Navbar, NavbarBrand } from 'reactstrap';
+
+function App() {  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar dark color="secondary" expand="md">
+              <NavbarBrand className="mr-auto" href="/"><img src="assets/images/Artboard@0.5x.png" alt="Logo" /></NavbarBrand>
+      </Navbar>
+
+      <container> 
+        <container> <Parcelinfo /> </container>
+        <container> <MyButton /> </container>
+      </container>
+    </>
   );
 }
 
