@@ -20,7 +20,7 @@ def get_points():
     
     driver_id, points = points[0]
     print(jsonify(driver_id=driver_id, points=points))
-    return jsonify(driver_id=driver_id, points=points)
+    return jsonify(points=points)
 
 @app.route('/feedback_stats', methods=["GET"])
 def get_feedback_stats():
