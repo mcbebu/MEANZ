@@ -42,16 +42,16 @@
   cursor: pointer;
   border: none;
   background-color: transparent;
-  height: 50px;
-  width: 100px;
+  height: 20%;
+  width: auto;
 }
 
 .shuriken-off {
   cursor: pointer;
   border: none;
   background-color: transparent;
-  height: 50px;
-  width: 100px;
+  height: 20%;
+  width: auto;
   opacity: 0.1;
 
 }

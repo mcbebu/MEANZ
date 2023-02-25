@@ -1,43 +1,154 @@
 
 import './App.css';
-import SubmitButton from './components/SubmitButton';
-import Parcelinfo from './components/Parcelinfo';
-import SelectTip from './components/SelectTip';
-import Feedback from './components/Feedback';
-import Rating from './components/Rating';
+import { useState, useReducer } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 
 
+const formReducer = (state, event) => {
+  if (event.reset) {
+    return {
+      orderid: '',
+      rating: '',
+      tips: '',
+      feedback: ''
+    }
+  }
+  return {
+    ...state,
+    [event.name] : event.value
+  }
+  
+}
+
 function App() {  
+  const [formData, setFormData] = useReducer(formReducer, {});
+  const [submitting, setSubmitting] = useState(false);
+  const [rating, setRating] = useState(0);
+  const [hover, setHover] = useState(0);
+
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    setSubmitting(true);
+    alert('Feedback received, thank you!')
+
+    setTimeout(() => {
+      setSubmitting(false);
+      setFormData({
+      reset: true
+    })
+   }, 3000);
+  }
+
+  const handleChange = event => {
+    setFormData({
+      name: event.target.name,
+      value: event.target.value,
+    });
+  }
+
+  function clickRating(index) {
+    setFormData({
+      name: "rating",
+      value: index,
+    });
+  }
+
+
   return (
     <>
       <Navbar dark styler={'#e9ecef'} expand="md">
-              <NavbarBrand className="mr-auto" href="/"><img src="assets/images/Artboard@0.5x.png" alt="Logo" /></NavbarBrand>
+        <NavbarBrand className="mr-auto" href="/"><img src="assets/images/Artboard@0.5x.png" alt="Logo" /></NavbarBrand>
       </Navbar>
       <div className="container-fluid py-5 h-100 p-5 text-white bg-dark" id="jumbotron">
-                <div className="row h-100 align-items-center">
-                    <div className="col-12 text-center">
-                        <h1 style={{ fontFamily: "Impact", fontSize: "4rem" }}>Feedback</h1>
-                    </div>
-                </div>
-            </div>
-      {/* <container>
-        <container> <Parcelinfo /> </container>
-        <container> <Rating /> </container>
-        <container> <Tip /> </container>
-        <container> <Feedback /> </container>
-        <container> <SubmitButton /> </container>
-      </container> */}
-
+        <div className="row h-100 align-items-center">
+          <div className="col-12 text-center">
+            <h1 style={{ fontFamily: "Impact", fontSize: "4rem" }}>Feedback</h1>
+          </div>
+        </div>
+      </div>
       
       <div class="container-md">
+        <div> remove this later:
+          <ul>
+            {Object.entries(formData).map(([name, value]) => (
+              <li key={name}><strong>{name}</strong>:{value.toString()}</li>
+              ))}
+          </ul>
+        </div>
+
         <br/><br/>
         <div class="row">
             <div class="col-7">
-              <container> <Parcelinfo /> </container>
+              {submitting &&
+              <div> Submitting Form...</div>
+              }
+              <form onSubmit={handleSubmit}>
+                <fieldset>
+                  <label>
+                    <p>Order ID:</p>
+                    <input name="orderid" onChange={handleChange} value={formData.orderid || ''}/>
+                  </label>
+                </fieldset>
+
+                <fieldset>
+                  <label>
+                    <p>Leave a rating!</p>
+                    {[...Array(5)].map((star, index) => {
+                      index += 1;
+                      return (
+                        <>
+                            <button
+                                value={formData.rating || ''}
+                                name="rating"
+                                type="button"
+                                key={index}
+                                className={index <= (hover || rating) ? "shuriken-on" : "shuriken-off"}
+                                onClick={() => {setRating(index); clickRating(index);}}
+                                onMouseEnter={() => setHover(index)}
+                                onMouseLeave={() => setHover(rating)}
+                                // onChange={clickRating}
+                            >
+                              <div>
+                                  <img 
+                                      className="shuriken-filled-img" 
+                                      src="assets/images/shuriken-filled.png"
+                                      width={100}
+                                  /> 
+                              </div>
+                            </button>
+                        </>
+
+                      );
+                    })}
+                  </label>
+                </fieldset>
+
+                <fieldset>
+                  <label>
+                    <p> Give a tip! </p>
+                    <select name="tips" onChange={handleChange} value={formData.tips || ''}>
+                      <option value="0">none</option>
+                      <option value="2">$2</option>
+                      <option value="5">$5</option>
+                      <option value="10">$10</option>
+                    </select>
+                  </label>
+                </fieldset>
+
+                <fieldset>
+                  <label>
+                    <p> Any other feedback? </p>
+                    <textarea class="form-control" name="feedback" rows="3" onChange={handleChange} value={formData.feedback || ''}></textarea>
+                  </label>
+                </fieldset>
+                
+                <button type="submit" className="red-pill-outline">Submit</button>
+              </form>
+              {/* <container> <Parcelinfo /> </container>
               <container> <Rating /> </container>
               <container> <SelectTip /> </container>
-              <container> <Feedback /> </container>
+              <container> <Feedback /> </container> */}
                         
             </div>
             <div class="col">
@@ -50,13 +161,9 @@ function App() {
         </div>
       
       <br/><br/>
-      <container> <SubmitButton /> </container>
+      {/* <container> <SubmitButton /> </container> */}
       
 
-
-      {/* <container>
-          <img className="ninja-pic" src="assets/images/Asset-23Ninja-Icon.png" />  
-      </container> */}
     </>
   );
 }
