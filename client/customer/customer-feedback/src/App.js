@@ -2,7 +2,7 @@
 import './App.css';
 import SubmitButton from './components/SubmitButton';
 import Parcelinfo from './components/Parcelinfo';
-import Tip from './components/Tip';
+import SelectTip from './components/SelectTip';
 import Feedback from './components/Feedback';
 import Rating from './components/Rating';
 import { Navbar, NavbarBrand } from 'reactstrap';
@@ -36,7 +36,7 @@ function App() {
             <div class="col-7">
               <container> <Parcelinfo /> </container>
               <container> <Rating /> </container>
-              <container> <Tip /> </container>
+              <container> <SelectTip /> </container>
               <container> <Feedback /> </container>
                         
             </div>

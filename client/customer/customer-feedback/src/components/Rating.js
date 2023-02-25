@@ -3,6 +3,7 @@ import { useState } from 'react';
 function Rating() {
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0);
+    
     return (
 
       <container className="rating-display">
@@ -12,20 +13,6 @@ function Rating() {
           index += 1;
           return (
             <>
-                {/* <buttons
-                    type="button"
-                    // disabled
-                    // key={"blank"+index}
-                    className="shuriken-blank-button"
-                    >
-                    <img 
-                        key={index}
-                        className="shuriken-blank-img" 
-                        src="assets/images/shuriken-blank.png"
-                        width={100}
-                    />
-                </button> */}
-                
                 <button
                     type="button"
                     key={index}

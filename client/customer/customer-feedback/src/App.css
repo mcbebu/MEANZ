@@ -33,7 +33,6 @@
   position: absolute;
   left: 30%;
   top: 10%;
-  /* padding-right: 10%; */
   width: 50%;
   height: auto; 
   
@@ -56,31 +55,6 @@
   opacity: 0.1;
 
 }
-
-/* .shuriken-blank-img {
-  pointer-events: none;
-  border: none;
-  background-color: transparent;
-  opacity: 1;
-  position:absolute;
-  top:00px; 
-} */
-
-/* .shuriken-blank-button {
-  pointer-events: none;
-  border: none;
-  background-color: transparent;
-  opacity: 1;
-  position: absolute;
-  top: 500px;
-} */
-
-/* .shuriken-filled-img {
-  position: absolute;
-  top: 00px;
-  opacity: 1;
-} */
-
 
 .rating-display {
   display: flex;
