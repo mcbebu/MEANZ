@@ -21,3 +21,11 @@
     margin:0px auto;
     color:floralwhite;
 }
+
+#catalogueHeader {
+    width: 100%;
+    height: 100vh;
+    padding:100px 160px 100px 160px;
+    margin:0px auto;
+    color:floralwhite;
+}

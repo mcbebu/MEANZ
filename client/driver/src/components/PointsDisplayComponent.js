@@ -1,13 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useStoreActions, useStoreState } from 'easy-peasy';
 import CountUp from 'react-countup';
 
 const PointsDisplay = () => {
-    const [endValue, setEndValue] = useState(0);
+    const params = useParams();
+    const driverId = params.driverId;
+    const getPoints = useStoreActions(actions => actions.points.getPoints);
+    const points = useStoreState(state => state.points.points);
 
     useEffect(() => {
-        setEndValue(2363);
-      }, []);
-    
+        getPoints(driverId);
+    }, [getPoints, driverId]);
+
     return (
         <div>
             <div class="container-md">
@@ -23,7 +28,7 @@ const PointsDisplay = () => {
                         </div>
                         <div style={{ textAlign: "center" }}>
                             <div class="col-12">
-                                <CountUp end={endValue} duration={1} style={{ fontSize: '10rem', fontFamily: 'Impact'}} />
+                                <CountUp end={points} duration={1} style={{ fontSize: '10rem', fontFamily: 'Impact'}} />
                             </div>
                         </div>
                         <div class="row justify-content-center">

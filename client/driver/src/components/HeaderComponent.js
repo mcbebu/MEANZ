@@ -12,7 +12,7 @@ const Header = () => {
             <div className="container-fluid py-5 h-100 p-5 text-white bg-dark" id="jumbotron">
                 <div className="row h-100 align-items-center">
                     <div className="col-12 text-center">
-                        <h1 style={{ fontFamily: "Impact", fontSize: "4rem" }}>Rewards</h1>
+                        <h1 style={{ fontFamily: "Impact", fontSize: "5rem" }}>Rewards</h1>
                     </div>
                 </div>
             </div>

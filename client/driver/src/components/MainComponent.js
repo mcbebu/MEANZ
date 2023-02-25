@@ -1,12 +1,13 @@
 import React from 'react';
 import Header from './HeaderComponent';
 import PointsDisplay from './PointsDisplayComponent';
+import Catalogue from './CatalogueComponent';
 
 const Main = () => {
     return (
         <div>
-            <Header />
             <PointsDisplay />
+            <Catalogue />
         </div>
     );
 };  
