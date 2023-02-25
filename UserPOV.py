@@ -1,8 +1,9 @@
-from flask import Flask,request
+from flask import Flask,request,jsonify
 import sqlite3
-
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
@@ -13,7 +14,8 @@ def get_db_connection():
 @app.route("/feedback", methods = ["GET"])
 def feedback():
     ## render template for form
-    return "<h1> Feedback page <h1>"
+    # return "<h1> Feedback page <h1>"
+    return {}
 
 @app.route("/submitted_feedback", methods = ["POST"])
 def submitted_feedbac():
@@ -77,22 +79,22 @@ def get_points():
     cur = conn.cursor()
     driver_id = request.args.get("driver_id")
 
-    points = cur.execute(f'SELECT driver_id, points FROM drivers WHERE driver_id = ?',driver_id).fetchall()
+    points = cur.execute(f'SELECT driver_id, points FROM drivers WHERE driver_id = ?',(driver_id,)).fetchall()
     conn.close()
-    
     driver_id, points = points[0]
+    print(f'points = {points}')
     print(jsonify(driver_id=driver_id, points=points))
-    return jsonify(points=points)
+    return jsonify(points=points,status="success")
 
 @app.route('/feedback_stats', methods=["GET"])
 def get_feedback_stats():
     conn = get_db_connection()
     cur = conn.cursor()
     driver_id = request.args.get("driver_id")
-    avg_rating = cur.execute(f'SELECT avg(rating) FROM driverFeedback WHERE driver_id = ?', driver_id).fetchall()
+    avg_rating = cur.execute(f'SELECT avg(rating) FROM driverFeedback WHERE driver_id = ?', (driver_id,)).fetchall()
     average = avg_rating[0][0]
     
-    feedback = cur.execute(f'SELECT feedback, rating FROM driverFeedback WHERE driver_id = ? AND rating > 2 ORDER BY rating DESC LIMIT 3', driver_id).fetchall()
+    feedback = cur.execute(f'SELECT feedback, rating FROM driverFeedback WHERE driver_id = ? AND rating > 2 ORDER BY rating DESC LIMIT 3', (driver_id,)).fetchall()
     conn.close()
 
     feedback1, rating1 = feedback[0]
@@ -104,4 +106,10 @@ def get_feedback_stats():
     return jsonify(feedback_array=feedback_array, average=average)
 
 
-
+@app.route("/rewards", methods= ["GET"])
+def reward_catalogue():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    avg_rating = cur.execute('SELECT item_name, points FROM rejected_orders').fetchall()
+    lst = [(item_name,points) for item_name,points in avg_rating]
+    return jsonify(catalogue=lst, status="success")
