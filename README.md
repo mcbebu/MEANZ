@@ -14,7 +14,7 @@ We want to improve the experience for both customers and drivers:
 - drivers:
   - earn points for delivering parcels within the designated time frame
   - also earn points for receiving good ratings
-  - can use the points to exchange for returned parcels 
+  - can exchange points for returned parcels 
   - incentivised and encouraged to perform better
   
 ## Our Solution:
