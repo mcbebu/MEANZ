@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from './HeaderComponent';
 import PointsDisplay from './PointsDisplayComponent';
 import Catalogue from './CatalogueComponent';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import GridComponent from './GridComponent';
 
 
 const Catalogue = () => {
@@ -9,6 +10,7 @@ const Catalogue = () => {
                     <h1 style={{ fontStyle: 'Impact', color: '#800000', fontSize: '4rem', textAlign: 'center', fontWeight: 'bolder'}}>Rewards Catalogue</h1>
                 </div>
             </div>
+            <GridComponent />
         </div>
     );
 }
