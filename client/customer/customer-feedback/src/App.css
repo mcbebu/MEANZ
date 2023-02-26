@@ -2,37 +2,104 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.parcel-id-text {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content:flex-left;
+  padding: 2%;
 }
 
-.App-link {
-  color: #61dafb;
+.parcel-id-box {
+  display: flex;
+  padding: 2%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tip-field {
+  display: flex;
+  justify-content:flex-left;
+  padding: 2%;
+}
+
+.submit-button {
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.feedback-box {
+  padding: 2%;
+}
+
+.ninja-pic {
+  position: absolute;
+  left: 45%;
+  top: 25%;
+  width: 55%;
+  height: auto; 
+  
+} 
+
+.shuriken-on {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  height: 20%;
+  width: auto;
+}
+
+.shuriken-off {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  height: 20%;
+  width: auto;
+  opacity: 0.1;
+
+}
+
+.rating-display {
+  display: flex;
+  position: left;
+  padding: 2%;
+}
+
+#jumbotron {
+  width: 100%;
+  height: 100vh;
+  padding:70px 160px 70px 160px;
+  margin:0px auto;
+  color:floralwhite;
+}
+
+.red-pill-outline {
+  border: 2px solid #ff5252;
+  border-radius: 50px;
+  color: #ff5252;
+  background-color: transparent;
+  padding: 10px 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  left: 80%;
+  top: 110%;
+}
+
+.red-pill-outline:hover {
+  background-color: #ff5252;
+  color: #fff;
+}
+
+p {
+  font-size: 2rem;
+}
+
+.form-control {
+  width: 220%; 
+  box-sizing: border-box;
+}
+
+.select-button {
+
+  padding: 2%;
+  font-size: 1.5rem;;
 }
