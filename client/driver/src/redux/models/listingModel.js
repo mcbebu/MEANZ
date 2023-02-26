@@ -6,12 +6,14 @@ const listingModel = {
     listings: [],
 
     getListings: thunk(async (actions, payload) => {
-        const url = serverUrl + '/listings';
+        const url = serverUrl + '/rewards';
         const response = await axios.get(url);
-        actions.setListings(response.data.listings);
+        console.log(response.data);
+        actions.setListings(response.data.catalogue);
     }),
 
     setListings: action((state, payload) => {
+        console.log(payload)
         state.listings = [...payload];
     })
 }
