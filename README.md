@@ -1,6 +1,6 @@
 # Team MEANZ presents...
 
-<h1 align = "center"> <img src="https://user-images.githubusercontent.com/64476154/221387483-ee48e2dd-6abe-48ef-8d84-31f1844fcb19.png" weight=100px height = 100px>  Rewards for Ryo </h1>
+<h1 align = "center"> <img src="https://user-images.githubusercontent.com/64476154/221387483-ee48e2dd-6abe-48ef-8d84-31f1844fcb19.png" weight=100px height = 100px>  Rewards for Ryos </h1>
 
 ## The Issue:
 - How might we encourage our drivers to **increase their work performance** by providing on-time deliveries? 
