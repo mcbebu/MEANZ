@@ -150,7 +150,7 @@ function App() {
                     <input name="orderid" onChange={handleChange} value={formData.orderid || ''}/>
                   </label>
                 </fieldset>
-
+                <br/>
                 <fieldset>
                   <label>
                     <p>Leave a rating!</p>
@@ -184,10 +184,12 @@ function App() {
                   </label>
                 </fieldset>
 
+                <br/>
+
                 <fieldset>
                   <label>
                     <p> Give a tip! </p>
-                    <select name="tips" onChange={handleChange} value={formData.tips || ''}>
+                    <select className="select-button" name="tips" onChange={handleChange} value={formData.tips || ''}>
                       <option value="0">none</option>
                       <option value="2">$2</option>
                       <option value="5">$5</option>
@@ -195,6 +197,8 @@ function App() {
                     </select>
                   </label>
                 </fieldset>
+
+                <br/>
 
                 <fieldset>
                   <label>
@@ -221,7 +225,9 @@ function App() {
                 <img className="ninja-pic" src="assets/images/Asset-23Ninja-Icon.png" />  
               </container>
             </div>
+            
           </div>
+          
           
         </div>
       

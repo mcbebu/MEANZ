@@ -31,9 +31,9 @@
 
 .ninja-pic {
   position: absolute;
-  left: 30%;
-  top: 10%;
-  width: 50%;
+  left: 45%;
+  top: 25%;
+  width: 55%;
   height: auto; 
   
 } 
@@ -81,6 +81,7 @@
   transition: all 0.2s ease-in-out;
   position: absolute;
   left: 80%;
+  top: 110%;
 }
 
 .red-pill-outline:hover {
@@ -93,6 +94,12 @@ p {
 }
 
 .form-control {
-  width: 200%; 
+  width: 220%; 
   box-sizing: border-box;
+}
+
+.select-button {
+
+  padding: 2%;
+  font-size: 1.5rem;;
 }
