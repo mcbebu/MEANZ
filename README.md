@@ -1,4 +1,4 @@
-# MEANZ presents...
+# Team MEANZ presents...
 
 <h1 align = "center"> <img src="https://user-images.githubusercontent.com/64476154/221387483-ee48e2dd-6abe-48ef-8d84-31f1844fcb19.png" weight=100px height = 100px>  Rewards for Ryo </h1>
 
@@ -21,3 +21,34 @@ We want to improve the experience for both customers and drivers:
 For the customers: a webpage to provide feedback in an easy way.
 
 For the drivers: a webpage to track their points and exchange them for rewards.
+
+## How to run our solution?
+
+To run UserPOV.py flask app: 
+
+1. run the following code to initialize the database
+
+`python init_db.py`
+
+2. to run the app run the following code
+
+For Windows CMD:
+
+```
+set FLASK_APP=UserPOV
+flask run
+```
+
+For Windows PowerShell:
+
+```
+$env:FLASK_APP="UserPOV"
+flask run
+```
+
+Others:
+
+```
+export FLASK_APP=UserPOV
+flask run
+```
