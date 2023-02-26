@@ -22,7 +22,7 @@ For the customers: a webpage to provide feedback in an easy way.
 
 For the drivers: a webpage to track their points and exchange them for rewards.
 
-## How to run our solution?
+## How to run our solution:
 
 To run UserPOV.py flask app: 
 
@@ -30,7 +30,7 @@ To run UserPOV.py flask app:
 
 `python init_db.py`
 
-2. to run the app run the following code
+2. run the following code to run the app 
 
 For Windows CMD:
 
