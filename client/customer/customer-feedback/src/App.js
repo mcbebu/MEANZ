@@ -27,18 +27,18 @@ function App() {
   const [hover, setHover] = useState(0);
 
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    setSubmitting(true);
-    alert('Feedback received, thank you!')
+  // const handleSubmit = event => {
+  //   event.preventDefault();
+  //   setSubmitting(true);
+  //   alert('Feedback received, thank you!')
 
-    setTimeout(() => {
-      setSubmitting(false);
-      setFormData({
-      reset: true
-    })
-   }, 3000);
-  }
+  //   setTimeout(() => {
+  //     setSubmitting(false);
+  //     setFormData({
+  //     reset: true
+  //   })
+  //  }, 3000);
+  // }
 
   const handleChange = event => {
     setFormData({
@@ -54,6 +54,66 @@ function App() {
     });
   }
 
+  // function POST(path, data) {
+  //   return fetch(`http://localhost:5000${path}`,
+  //   {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //       body: JSON.stringify(data)
+  //     }
+  //   )
+  // }
+
+  // const formOnClick = event => {
+  //   event.preventDefault();
+  //   POST('/post',formData).then(
+  //     async (resp) => {
+  //       const json= await resp.json()
+  //     }
+  //   )
+  // }
+  
+  function getFormData(object1) {
+    const formData1 = new FormData();
+    Object.keys(object1).forEach(key => formData1.append(key, object1[key]));
+    return formData1;
+  }
+
+  // function getFormData(object2) {
+  //   const formData = new FormData();
+  //   Object.keys(object2).forEach(key => {
+  //     if (typeof object2[key] !== 'object') formData.append(key, object2[key])
+  //     else formData.append(key, JSON.stringify(object2[key]))
+  //   })
+  //   return formData;
+  // }
+
+  let submitFeedbackForm = async (e) => {
+    e.preventDefault();
+    var request = new XMLHttpRequest();
+    request.open('POST', 'http://159.138.121.61:5000/submitted_feedback');
+
+    var form_data = getFormData(formData);
+
+    //  for (let [key, val] of Object.entries(formData)) {
+    //      form_data.append(key, JSON.stringify(val));
+    // }
+
+    request.send(form_data);
+    setSubmitting(true);
+    alert('Feedback received, thank you!')
+    console.log(form_data);
+    console.log(typeof(form_data));
+
+    setTimeout(() => {
+      setSubmitting(false);
+      setFormData({
+      reset: true
+    })
+   }, 3000);
+  };
 
   return (
     <>
@@ -69,13 +129,13 @@ function App() {
       </div>
       
       <div class="container-md">
-        <div> remove this later:
+        {/* <div> remove this later:
           <ul>
             {Object.entries(formData).map(([name, value]) => (
               <li key={name}><strong>{name}</strong>:{value.toString()}</li>
               ))}
           </ul>
-        </div>
+        </div> */}
 
         <br/><br/>
         <div class="row">
@@ -83,7 +143,7 @@ function App() {
               {submitting &&
               <div> Submitting Form...</div>
               }
-              <form onSubmit={handleSubmit}>
+              <form method='post' action='/post' onSubmit={submitFeedbackForm}>
                 <fieldset>
                   <label>
                     <p>Order ID:</p>
@@ -143,7 +203,12 @@ function App() {
                   </label>
                 </fieldset>
                 
-                <button type="submit" className="red-pill-outline">Submit</button>
+                <button 
+                  type="submit"
+                  className="red-pill-outline" 
+                  onClick = {submitFeedbackForm}
+                  >
+                  Submit</button>
               </form>
               {/* <container> <Parcelinfo /> </container>
               <container> <Rating /> </container>
